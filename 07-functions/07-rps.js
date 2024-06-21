@@ -2,54 +2,48 @@ const plRock = document.querySelector("#pRock");
 const plPaper = document.querySelector("#pPaper");
 const plScs = document.querySelector("#pScs");
 let result;
-let pValue;
-let computerMove;
 plRock.addEventListener("click", () => {
-    pValue = "rock";
-    computerMove = pickComputerMove();
-    startGame(pValue, computerMove);
-    console.log(`You picked ${pValue}. Computer picked ${computerMove}. ${result}`);
+    startGame("rock");
+    // console.log(`You picked ${pValue}. Computer picked ${computerMove}. ${result}`);
 });
 
 plPaper.addEventListener("click", () => {
-    pValue = "paper";
-    computerMove = pickComputerMove();
-    startGame(pValue, computerMove);
-    console.log(`You picked ${pValue}. Computer picked ${computerMove}. ${result}`);
+    startGame("paper");
 });
 
 plScs.addEventListener("click", () => {
-    pValue = "scissors";
-    computerMove = pickComputerMove();
-    startGame(pValue, computerMove);
-    console.log(`You picked ${pValue}. Computer picked ${computerMove}. ${result}`);
+    startGame("scissors");
 });
 
-function pickComputerMove() {
-    const num = Math.floor((Math.random()+0.1)*10);
-    if (num <= 10 / 3) {
-        return "rock";
-    } else if (num > 10/3 && num <= 20/3) {
-        return "paper";
-    } else if (num > 20 / 3) {
-        return "scissors";
-    }
-}
 
-function startGame(player, computer) {
-    if (player === computer) {
+
+function startGame(player) {
+    const computerHand = () => {
+        const number = Math.floor((Math.random()+0.1)*10);
+        if (number <= 10 / 3) {
+            return "rock";
+        } else if (number > 10/3 && number <= 20/3) {
+            return "paper";
+        } else if (number > 20 / 3) {
+            return "scissors";
+        }
+    };
+    const comp = computerHand();
+
+    if (player === comp) {
         result = "Tied.";
-    } else if (player === "rock" && computer === "paper") {
+    } else if (player === "rock" && comp === "paper") {
         result = "You lose.";
-    } else if (player === "rock" && computer === "scissors") {
+    } else if (player === "rock" && comp === "scissors") {
         result = "You win.";
-    } else if (player === "paper" && computer === "rock") {
+    } else if (player === "paper" && comp === "rock") {
         result = "You win.";
-    } else if (player === "paper" && computer === "scissors") {
+    } else if (player === "paper" && comp === "scissors") {
         result = "You lose.";
-    } else if (player === "scissors" && computer === "rock") {
+    } else if (player === "scissors" && comp === "rock") {
         result = "You lose.";
-    } else if (player === "scissors" && computer === "paper") {
+    } else if (player === "scissors" && comp === "paper") {
         result = "You win.";
     }
+    console.log(`You picked ${player}. Computer picked ${comp}. ${result}`)
 }
