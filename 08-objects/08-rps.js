@@ -2,12 +2,7 @@ const plRock = document.querySelector("#pRock");
 const plPaper = document.querySelector("#pPaper");
 const plScs = document.querySelector("#pScs");
 const resetBtn = document.querySelector("#rBtn");
-let result;
-const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-}
+const score = JSON.parse(localStorage.getItem("score")) || { wins: 0, losses: 0, ties: 0 };
 plRock.addEventListener("click", () => {
     startGame("rock");
     // console.log(`You picked ${pValue}. Computer picked ${computerMove}. ${result}`);
@@ -25,6 +20,7 @@ resetBtn.addEventListener("click", () => {
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
+    localStorage.removeItem("score");
     console.log(`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 });
 
@@ -40,7 +36,9 @@ function startGame(player) {
             return "scissors";
         }
     };
+
     const comp = computerHand();
+    let result;
 
     if (player === comp) {
         result = "Tied.";
@@ -64,6 +62,10 @@ function startGame(player) {
         result = "You win.";
         score.wins += 1;
     }
+    localStorage.setItem("score", JSON.stringify(score));
     console.log(`You picked ${player}. Computer picked ${comp}. ${result}`)
     console.log(`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+    if (!localStorage.getItem("score")) {
+        localStorage.setItem("score", JSON.stringify(score));
+    }
 }
