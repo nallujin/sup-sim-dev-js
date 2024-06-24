@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object Exercise</title>
+</head>
+<body>
+	<script>
+			// 8a, 8b, 8c, 8d
+      function comparePrice(prod1, prod2) {
+          if (prod1.price > prod2.price) {
+              return prod2;
+          } else {
+              return prod1;
+          }
+      }
+
+      function isSameProduct(prod1, prod2) {
+          const nameComparison = prod1.name === prod2.name;
+          const priceComparison = prod1.price === prod2.price;
+          return (nameComparison === true && priceComparison === true);
+          // return `${nameComparison}, ${priceComparison}`;
+      }
+
+      const product1 = {
+          name: "basketball",
+		      price: 2095
+      }
+
+      const product2 = {
+          name: "cotton socks",
+          price: 1090
+      }
+
+      const product3 = {
+          name: "cotton socks",
+		      price: 1090
+      };
+
+      // 8g
+      // const text = "test";
+      // console.log(text.repeat(2));
+
+      // 8f
+      // const greeting = "Good Morning";
+      // console.log(greeting.toLowerCase());
+
+      // 8e
+      // console.log(product2 === product3);
+			// console.log(isSameProduct(product2, product3));
+
+      // 8a, 8b, 8c, 8d
+      // console.log(product1);
+      // console.log(product1.name);
+      // product1.price += 500;
+      // console.log("Price:", product1.price);
+      // product1["delivery-time"] = "3 days"
+      // console.log(product1["delivery-time"]);
+      // console.log(comparePrice(product1, product2));
+	</script>
+</body>
+</html>
