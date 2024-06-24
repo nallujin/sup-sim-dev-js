@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Coin Flip Game</title>
+</head>
+<body>
+<!-- Coin flip game; exercise 6f, 6g, 6h, 6i, 6j	-->
+<button type="button" onclick="playGame(`head`)">heads</button>
+<button type="button" onclick="playGame(`tails`)">tails</button>
+<button type="button" onclick="localStorage.removeItem(`score`)">clear</button>
+<script>
+		// Add localStorage functionality within exercise no.8
+		const score = JSON.parse(localStorage.getItem("score")) || {wins: 0, losses: 0};
+    function playGame(guess) {
+        const randomNum = Math.random();
+        let result;
+        // Ternary operator, if else.
+        randomNum < 0.5 ? result = "head" : result = "tails";
+        // result === guess ? console.log(`You win! Result: ${result}`) : console.log(`You lose! Result: ${result}`);
+        if (result === guess) {
+            score.wins += 1;
+            console.log(`You win! Result: ${result}; ${score.wins} wins, ${score.losses} losses`);
+        } else {
+            score.losses += 1;
+            console.log(`You lose! Result: ${result}; ${score.wins} wins, ${score.losses} losses`);
+        }
+				localStorage.setItem("score", JSON.stringify(score))
+    }
+</script>
+</body>
+</html>
