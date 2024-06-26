@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise 9h</title>
+</head>
+<body>
+	<label for="your-text-here"></label>
+	<input type="text"
+	       placeholder="Type Something"
+	       id="your-text-here"
+	       onkeyup=""/>
+	<p></p>
+	<script>
+      const inputText = document.querySelector("#your-text-here");
+      const para = document.querySelector("p");
+      inputText.addEventListener("keyup", () => {
+				para.textContent = inputText.value;
+      });
+	</script>
+</body>
+</html>
