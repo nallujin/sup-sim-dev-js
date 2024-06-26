@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Exercise 9g</title>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<button type="button" class="js-subscribe-button">Subscribe</button>
+<p>Amazon Shipping Calculator</p>
+<p>Orders under $40 = +$10 shipping.</p>
+<p>Orders over $40 = FREE shipping.</p>
+<input type="text" placeholder="Cost of order" class="js-cost-input" />
+<button id="kalkul">Calculate</button>
+<p id="result-view"></p>
+<script>
+    const subBtn = document.querySelector(".js-subscribe-button");
+    subBtn.addEventListener("click", () => {
+        if (subBtn.textContent === "Subscribe") {
+            subBtn.textContent = "Subscribed";
+        } else {
+            subBtn.textContent = "Subscribe";
+        }
+    });
+
+    document.querySelector("#kalkul").addEventListener("click", displayFinal);
+    document.querySelector(".js-cost-input").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            displayFinal();
+        }
+    });
+
+    function displayFinal() {
+        const costInput = Number(document.querySelector(".js-cost-input").value);
+        const resultView = document.querySelector("p#result-view");
+        if (costInput < 40) {
+            resultView.textContent = `$${(costInput+10).toFixed(2)}`;
+        } else {
+            resultView.textContent = `$${costInput}`;
+        }
+    }
+</script>
+</body>
+</html>
