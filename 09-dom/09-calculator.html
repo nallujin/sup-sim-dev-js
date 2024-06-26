@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Calculator</title>
+</head>
+	<body>
+		<p>Calculator</p>
+		<p id="monitor"></p>
+		<p id="result"></p>
+		<p>
+			<button onclick="updateCalculation(`1`)">1</button>
+			<button onclick="updateCalculation(`2`)">2</button>
+			<button onclick="updateCalculation(`3`)">3</button>
+			<button onclick="updateCalculation(` + `)">+</button>
+		</p>
+		<p>
+			<button onclick="updateCalculation(`4`)">4</button>
+			<button onclick="updateCalculation(`5`)">5</button>
+			<button onclick="updateCalculation(`6`)">6</button>
+			<button onclick="updateCalculation(` - `)">-</button>
+		</p>
+		<p>
+			<button onclick="updateCalculation(`7`)">7</button>
+			<button onclick="updateCalculation(`8`)">8</button>
+			<button onclick="updateCalculation(`9`)">9</button>
+			<button onclick="updateCalculation(` * `)">*</button>
+		</p>
+		<p>
+			<button onclick="updateCalculation(`0`)">0</button>
+			<button onclick="updateCalculation(` . `)">.</button>
+			<button onclick="finalize()">=</button>
+			<button onclick="updateCalculation(` / `)">/</button>
+		</p>
+		<p>
+			<button onclick="clearStor()">Clear</button>
+		</p>
+		<script>
+        const para = document.querySelector("#monitor");
+        const resPara = document.querySelector("#result")
+		    let calculation = localStorage.getItem("defVal") || "";
+        para.textContent = calculation;
+
+		    function updateCalculation(cont) {
+		        calculation += cont;
+		        localStorage.setItem("defVal", calculation);
+				    para.textContent = calculation;
+		    }
+
+		    function clearStor() {
+		        calculation = "";
+		        localStorage.setItem("defVal", "");
+		    }
+
+		    function finalize() {
+		        console.log(eval(calculation));
+            resPara.textContent = eval(calculation);
+		        calculation = "";
+		        localStorage.setItem("defVal", "");
+		    }
+		</script>
+	</body>
+</html>
