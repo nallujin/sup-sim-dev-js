@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Rock Paper Scissors</title>
+		<script src="10-rps.js" defer></script>
+		<style>
+			body {
+        background-color: rgb(25, 25, 25);
+					color: #FFF;
+					font-family: Arial, sans-serif;
+			}
+
+			.title {
+					font-size: 30px;
+					font-weight: bold;
+      }
+
+			.move-icon {
+					height: 50px;
+      }
+
+			.move-button {
+					background-color: transparent;
+					border: 3px solid #fff;
+					border-radius: 100%;
+					width: 120px;
+					height: 120px;
+					margin-right: 10px;
+          cursor: pointer;
+      }
+
+			.result {
+					font-size: 25px;
+					font-weight: bold;
+					margin-top: 50px;
+      }
+
+			.score {
+					margin-top: 60px;
+      }
+
+			#rBtn {
+          padding: 8px 15px;
+					cursor: pointer;
+          background-color: #ffffff;
+          border: 0;
+          font-size: 15px;
+      }
+		</style>
+	</head>
+	<body>
+		<p class="title">Rock Paper Scissors</p>
+		<button id="pRock" class="move-button">
+			<img src="img/rock-emoji.png" alt="" class="move-icon" />
+		</button>
+		<button id="pPaper" class="move-button">
+			<img src="img/paper-emoji.png" alt="" class="move-icon" />
+		</button>
+		<button id="pScs" class="move-button">
+			<img src="img/scissors-emoji.png" alt="" class="move-icon" />
+		</button>
+		<p class="js-result result"></p>
+		<p class="js-moves">
+			You
+			<img src="img/rock-emoji.png" alt="" class="move-icon">
+			<img src="img/rock-emoji.png" alt="" class="move-icon">
+			Computer
+		</p>
+		<p class="js-score score"></p>
+		<button id="rBtn">Reset Score</button>
+	</body>
+</html>
