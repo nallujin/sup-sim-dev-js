@@ -1,0 +1,12 @@
+.switch-button {
+    border: none;
+    padding: 9px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: lightgrey;
+}
+
+.is-toggled {
+    background-color: #000;
+    color: #fff;
+}
