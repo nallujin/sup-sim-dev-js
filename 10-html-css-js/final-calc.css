@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #000;
+}
+
+#clearZ {
+    font-size: 16px;
+}
+
+.numbers {
+    font-size: 24px;
+    border: none;
+    color: #fff;
+    background-color: rgb(51,51,51);
+    border-radius: 100%;
+    height: 55px;
+    width: 55px;
+}
+
+.operator {
+    font-size: 24px;
+    border: none;
+    color: #fff;
+    background-color: rgb(254, 160, 10);
+    border-radius: 100%;
+    height: 55px;
+    width: 55px;
+}
+
+#monitor,
+#result {
+    font-size: 24px;
+}
