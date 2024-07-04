@@ -154,3 +154,121 @@
 // }
 //
 // console.log(countWords(["apple", "grape", "apple", "apple"]));
+
+// 11o, 11p
+// const array1 = ["hello", "world", "search", "good"];
+// const array2 = ["not", "found"];
+//
+// function lookSearch(arr) {
+//     let searchIndex = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === "search") {
+//             searchIndex += 1;
+//             console.log(i);
+//             break;
+//         }
+//     }
+//     if (searchIndex === 0) {
+//         console.log(-1);
+//     }
+// }
+//
+// lookSearch(array1);
+// lookSearch(array2);
+
+// 11q
+// const color1 = ["green", "red", "blue", "red"];
+// const color2 = ["green", "red", "blue", "red"];
+// function findIndex(arr, word) {
+//     let searchIndex = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === word) {
+//             searchIndex += 1;
+//             console.log(i);
+//             break;
+//         }
+//     }
+//     if (searchIndex === 0) {
+//         console.log(-1);
+//     }
+// }
+//
+// findIndex(color1, "red");
+// findIndex(color2, "yellow");
+
+// 11r, 11s
+// const eggArr = ["egg", "apple", "egg", "egg", "ham"];
+//
+// function removeEgg(foods) {
+//     const tempArr = [];
+//     let removeEggCount = 0;
+//     for (let i = 0; i < foods.length; i++) {
+//         if (foods[i] === "egg" && removeEggCount < 2) {
+//             removeEggCount++;
+//             continue;
+//         } else {
+//             tempArr.push(foods[i]);
+//         }
+//     }
+//     return tempArr;
+// }
+//
+// console.log(removeEgg(eggArr));
+
+// 11t, 11u
+// const eggArr = ["egg", "apple", "egg", "egg", "ham"];
+//
+// function removeEgg(foods) {
+//     const newFood = foods.slice().reverse();
+//     const tempArr = [];
+//     let removeEggCount = 0;
+//     for (let i = 0; i < newFood.length; i++) {
+//         if (newFood[i] === "egg" && removeEggCount < 2) {
+//             removeEggCount++;
+//             continue;
+//         } else {
+//             tempArr.push(newFood[i]);
+//         }
+//     }
+//     return tempArr.reverse();
+// }
+//
+// console.log(removeEgg(eggArr));
+// console.log(eggArr);
+
+// 11v
+// for (let i = 1; i <= 20; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//         console.log("Fizz");
+//     } else if (i % 5 === 0) {
+//         console.log("Buzz");
+//     } else {
+//         console.log(i);
+//     }
+// }
+
+// 11w
+const color1 = ["green", "red", "blue", "red"];
+const color2 = ["red", "green", "green", "red"];
+function findIndex(arr, word) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === word) {
+            return i;
+        }
+    }
+        return -1;
+}
+
+function unique(array) {
+    const uniqueOutput = [];
+    for (let i = 0; i < array.length; i++) {
+        const search = findIndex(array, array[i]);
+        if (search === i) {
+            uniqueOutput.push(array[i]);
+        }
+    }
+    return uniqueOutput;
+}
+
