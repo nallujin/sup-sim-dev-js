@@ -34,6 +34,16 @@ resetBtn.addEventListener("click", () => {
 const autoPlayBtn = document.querySelector("button.auto-play-button");
 autoPlayBtn.addEventListener("click", autoPlay);
 
+document.body.addEventListener("keydown", e => {
+    if (e.key === "r") {
+        startGame("rock");
+    } else if (e.key === "p") {
+        startGame("paper");
+    } else if (e.key === "s") {
+        startGame("scissors");
+    }
+});
+
 // theScore.textContent = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 updateScoreElement();
 
