@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Exercise 12g</title>
+</head>
+<body>
+	<button id="addBtn">Add</button>
+	<button id="delBtn">Remove</button>
+	<script>
+    const addBtn = document.querySelector("#addBtn");
+    const delBtn = document.querySelector("#delBtn");
+
+    // let intervalId;
+    let toggleSwitch = false;
+
+    let numMonitor = 0;
+    intervalId = setInterval(() => {
+        changeTitle();
+    }, 1000);
+
+    function changeTitle() {
+        if (!toggleSwitch) {
+            if (numMonitor === 0) {
+                document.title = "App";
+            } else if (numMonitor >= 0) {
+                document.title = `(${numMonitor}) New messages`;
+            }
+            toggleSwitch = !toggleSwitch;
+        } else if (toggleSwitch) {
+            document.title = "App";
+            toggleSwitch = !toggleSwitch;
+        }
+    }
+    addBtn.addEventListener("click", () => {
+        numMonitor++;
+    });
+
+    delBtn.addEventListener("click", () => {
+        if ((numMonitor - 1) < 0) {
+            // Skip
+        } else {
+            numMonitor--;
+        }
+
+    });
+	</script>
+</body>
+</html>
